@@ -6,25 +6,23 @@ class Searchbar extends Component{
       border:'solid',
       borderRadius:'10px',
       position:'relative',
-      left:'10vh',
-      height:'3vh',
-      width:'20vh',
+      //left:'10vh',
+      height:'5vh',
+      width:'100vh',
       marginTop:'5vh',
-      marginBottom:'10vh'
+      marginBottom:'3vh'
     }
     
     return(
-      <div>
-        <input
-        type="text"
-        placeholder="search..."
-        style={elementStyle}
-        onChange={function(e){
-          let keyword = e.target.value;
-          this.props.onChange(keyword);
-        }.bind(this)}
-        />
-      </div>
+      <input
+      type="text"
+      placeholder="search..."
+      style={elementStyle}
+      onChange={function(e){
+        let keyword = e.target.value;
+        this.props.onChange(keyword);
+      }.bind(this)}
+      />
     )
   }
 }

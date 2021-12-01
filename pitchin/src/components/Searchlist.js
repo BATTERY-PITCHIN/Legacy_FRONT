@@ -4,33 +4,35 @@ import Information from '../data/sample';
 class Searchlist extends Component{
     render(){
         const styleInfo = {
-          paddingRight:'10px'
+          //paddingRight:'10px'
+          marginTop:'10px'
         }
-
-        //let data=this.props.data;
 
         const items = Information.filter((data)=>{
             if(this.props.search == null)
                 return
             else if(data.name.toLowerCase().includes(this.props.search.toLowerCase()) ||
             data.country.toLowerCase().includes(this.props.search.toLowerCase())){
+                if(this.props.search.length == 0)
+                    return
                 return data
             }
         }).map(data=>{
             return(
-                <div>
-                    <ul>
-                        <li style={{position:'relative', left:'10vh'}}>
-                            <span style={styleInfo}>{data.name}</span>
-                            <span style={styleInfo}>{data.age}</span>
-                            <span style={styleInfo}>{data.country}</span>
-                        </li>
-                    </ul>
-                </div>
+                <p>{data.name} {data.age} {data.country}</p>
             )
         })
 
-        return (items);
+        return (
+            <body>
+                <header>
+                    <h3>검색 결과</h3>
+                </header>
+                <div style={styleInfo}>
+                    {items}
+                </div>
+            </body>
+            );
     }
 } 
 
